@@ -25,13 +25,13 @@ namespace MrmTechTest.Core.Infrastructure.EntityFramework
             return query.Execute(this);
         }
 
-        public void Delete<TEntity>(TEntity entity) where TEntity : class
+        public virtual void Delete<TEntity>(TEntity entity) where TEntity : class
         {
             Set<TEntity>().Remove(entity);
             SaveChanges();
         }
 
-        public void Save<TEntity>(TEntity entity) where TEntity : class
+        public virtual void Save<TEntity>(TEntity entity) where TEntity : class
         {
             Set<TEntity>().Add(entity);
             SaveChanges();

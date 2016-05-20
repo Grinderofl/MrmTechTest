@@ -16,14 +16,14 @@ namespace MrmTechTest.Core.Infrastructure.Windsor
             _kernel = kernel;
         }
 
-        public IDependencyScope BeginScope() => new WindsorDependencyScope(_kernel);
+        public virtual IDependencyScope BeginScope() => new WindsorDependencyScope(_kernel);
 
-        public object GetService(Type serviceType)
+        public virtual object GetService(Type serviceType)
             => _kernel.HasComponent(serviceType) ? _kernel.Resolve(serviceType) : null;
 
-        public IEnumerable<object> GetServices(Type serviceType) => _kernel.ResolveAll(serviceType).Cast<object>();
+        public virtual IEnumerable<object> GetServices(Type serviceType) => _kernel.ResolveAll(serviceType).Cast<object>();
 
-        public void Dispose()
+        public virtual void Dispose()
         {
         }
     }

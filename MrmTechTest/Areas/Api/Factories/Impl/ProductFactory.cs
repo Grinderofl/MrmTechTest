@@ -14,7 +14,7 @@ namespace MrmTechTest.Areas.Api.Factories.Impl
             _repository = repository;
         }
 
-        public Product Create(ProductFields fields)
+        public virtual Product Create(ProductFields fields)
         {
             var product = new Product(fields.Name, fields.Description);
             var category = _repository.Query(new FindCategoryByNameQuery(fields.Category)) ??

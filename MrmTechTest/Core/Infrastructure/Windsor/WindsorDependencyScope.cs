@@ -18,10 +18,10 @@ namespace MrmTechTest.Core.Infrastructure.Windsor
             _scope = container.BeginScope();
         }
 
-        public object GetService(Type serviceType)
+        public virtual object GetService(Type serviceType)
             => _container.HasComponent(serviceType) ? _container.Resolve(serviceType) : null;
 
-        public IEnumerable<object> GetServices(Type serviceType) => _container.ResolveAll(serviceType).Cast<object>();
+        public virtual IEnumerable<object> GetServices(Type serviceType) => _container.ResolveAll(serviceType).Cast<object>();
 
         public void Dispose() => _scope.Dispose();
     }
