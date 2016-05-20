@@ -1,8 +1,10 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using System.Data.Entity.Migrations;
+using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using MrmTechTest.Core.EntityFramework;
 using MrmTechTest.Core.Infrastructure.EntityFramework;
+using MrmTechTest.Migrations;
 
 namespace MrmTechTest.Core.Install
 {
@@ -10,7 +12,7 @@ namespace MrmTechTest.Core.Install
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<IDbContext>().ImplementedBy<ApplicationDbContext>().LifestyleScoped());
+            container.Register(Component.For<IRepository>().ImplementedBy<ApplicationDbContext>().LifestyleScoped());
         }
     }
 }
