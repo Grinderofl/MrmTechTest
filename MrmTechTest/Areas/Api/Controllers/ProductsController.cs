@@ -37,6 +37,7 @@ namespace MrmTechTest.Areas.Api.Controllers
             return products.ProjectToList<ProductLineItem>(_configurationProvider);
         }
 
+        // DELETE: /api/products/{id}
         public void Delete(long id)
         {
             var product = _repository.Find<Product>(id);
@@ -45,6 +46,7 @@ namespace MrmTechTest.Areas.Api.Controllers
             _repository.Delete(product);
         }
 
+        // POST: /api/products
         public ProductLineItem Post(ProductFields fields)
         {
             var product = _productFactory.Create(fields);

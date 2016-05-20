@@ -246,7 +246,6 @@
     <Compile Include="Core\EntityFramework\ApplicationDbContext.cs" />
     <Compile Include="Core\Infrastructure\EntityFramework\AbstractDbContext.cs" />
     <Compile Include="Core\Infrastructure\EntityFramework\IRepository.cs" />
-    <Compile Include="Core\Infrastructure\Mvc\Class1.cs" />
     <Compile Include="Core\Infrastructure\Queries\QueryObject.cs" />
     <Compile Include="Core\Infrastructure\Windsor\WindsorDependencyResolver.cs" />
     <Compile Include="Core\Infrastructure\Windsor\WindsorDependencyScope.cs" />

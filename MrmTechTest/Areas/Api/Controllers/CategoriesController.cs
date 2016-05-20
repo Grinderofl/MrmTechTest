@@ -23,10 +23,11 @@ namespace MrmTechTest.Areas.Api.Controllers
         }
 
         // GET: /api/categories
-        public IEnumerable<CategoryLineItem> Get()
+        // Returns IQueryable to allow further filtering as passed in through the OData parameters
+        public IQueryable<CategoryLineItem> Get()
         {
             var categories = _repository.Query(new FindAllCategoriesQuery());
-            return categories.ProjectToList<CategoryLineItem>(_configurationProvider);
+            return categories.ProjectTo<CategoryLineItem>(_configurationProvider);
         } 
     }
 }
