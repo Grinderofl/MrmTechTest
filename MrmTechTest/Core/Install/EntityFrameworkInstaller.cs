@@ -1,10 +1,8 @@
-﻿using System.Data.Entity.Migrations;
-using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using MrmTechTest.Core.EntityFramework;
 using MrmTechTest.Core.Infrastructure.EntityFramework;
-using MrmTechTest.Migrations;
 
 namespace MrmTechTest.Core.Install
 {

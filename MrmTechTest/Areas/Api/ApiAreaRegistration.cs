@@ -3,14 +3,11 @@ using System.Web.Mvc;
 
 namespace MrmTechTest.Areas.Api
 {
-    public class ApiAreaRegistration : AreaRegistration 
+    public class ApiAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
-            {
-                return "Api";
-            }
+            get { return "Api"; }
         }
 
         public override void RegisterArea(AreaRegistrationContext config)
@@ -18,17 +15,17 @@ namespace MrmTechTest.Areas.Api
             config.Routes.MapHttpRoute(
                 "CategoryProducts",
                 "api/categories/{id}/products",
-                new { controller = "CategoryProducts" });
+                new {controller = "CategoryProducts"});
 
             config.Routes.MapHttpRoute(
                 "Categories",
                 "api/categories",
-                new { controller = "Categories" });
+                new {controller = "Categories"});
 
             config.Routes.MapHttpRoute(
                 "Products",
                 "api/products/{id}",
-                new { controller = "Products", id = RouteParameter.Optional });
+                new {controller = "Products", id = RouteParameter.Optional});
         }
     }
 }

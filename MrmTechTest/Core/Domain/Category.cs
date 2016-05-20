@@ -10,8 +10,11 @@ namespace MrmTechTest.Core.Domain
         {
             Name = name;
         }
+
         protected Category()
-        { }
+        {
+        }
+
         public virtual ICollection<Product> Products { get; set; } = new List<Product>();
         public virtual string Name { get; set; }
 
@@ -20,6 +23,5 @@ namespace MrmTechTest.Core.Domain
             if (Products.All(p => p.Id != product.Id))
                 Products.Add(product);
         }
-
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Http;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -13,8 +10,8 @@ namespace MrmTechTest.Areas.Api.Controllers
 {
     public class CategoriesController : ApiController
     {
-        private readonly IRepository _repository;
         private readonly IConfigurationProvider _configurationProvider;
+        private readonly IRepository _repository;
 
         public CategoriesController(IRepository dbContext, IConfigurationProvider configurationProvider)
         {
@@ -24,10 +21,14 @@ namespace MrmTechTest.Areas.Api.Controllers
 
         // GET: /api/categories
         // Returns IQueryable to allow further filtering as passed in through the OData parameters
+        /// <summary>
+        /// Retrieves a queryable list of categories
+        /// </summary>
+        /// <returns></returns>
         public IQueryable<CategoryLineItem> Get()
         {
             var categories = _repository.Query(new FindAllCategoriesQuery());
             return categories.ProjectTo<CategoryLineItem>(_configurationProvider);
-        } 
+        }
     }
 }

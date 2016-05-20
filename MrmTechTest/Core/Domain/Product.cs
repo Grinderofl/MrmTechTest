@@ -1,6 +1,4 @@
-﻿using System;
-using System.Web;
-using MrmTechTest.Core.Domain.Base;
+﻿using MrmTechTest.Core.Domain.Base;
 
 namespace MrmTechTest.Core.Domain
 {
@@ -8,8 +6,8 @@ namespace MrmTechTest.Core.Domain
     {
         protected Product()
         {
-            
         }
+
         public Product(string name, string description)
         {
             Name = name;

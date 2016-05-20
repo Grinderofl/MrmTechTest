@@ -14,6 +14,7 @@ namespace MrmTechTest.Core.Infrastructure.EntityFramework
             Configuration.LazyLoadingEnabled = true;
             Configuration.ProxyCreationEnabled = true;
         }
+
         public virtual TEntity Find<TEntity>(object id) where TEntity : class
         {
             return Set<TEntity>().Find(id);
@@ -38,7 +39,10 @@ namespace MrmTechTest.Core.Infrastructure.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            var entityTypes = Assembly.GetExecutingAssembly().GetExportedTypes().Where(t => !t.IsAbstract && t.IsSubclassOf(typeof(Entity)));
+            var entityTypes =
+                Assembly.GetExecutingAssembly()
+                    .GetExportedTypes()
+                    .Where(t => !t.IsAbstract && t.IsSubclassOf(typeof (Entity)));
             foreach (var entityType in entityTypes)
             {
                 modelBuilder.RegisterEntityType(entityType);
@@ -50,7 +54,12 @@ namespace MrmTechTest.Core.Infrastructure.EntityFramework
 
         public override int SaveChanges()
         {
-            foreach (var entity in ChangeTracker.Entries().Where(e => e.State == EntityState.Added || e.State == EntityState.Modified).Select(x => x.Entity).OfType<Entity>())
+            foreach (
+                var entity in
+                    ChangeTracker.Entries()
+                        .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified)
+                        .Select(x => x.Entity)
+                        .OfType<Entity>())
             {
                 entity.LastModified = DateTime.Now;
             }

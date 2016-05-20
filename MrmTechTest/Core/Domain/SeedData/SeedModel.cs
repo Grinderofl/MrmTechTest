@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MrmTechTest.Core.Domain.SeedData
+﻿namespace MrmTechTest.Core.Domain.SeedData
 {
     public class SeedModel
     {

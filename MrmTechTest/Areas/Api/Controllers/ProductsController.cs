@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using MrmTechTest.Areas.Api.Factories;
 using MrmTechTest.Areas.Api.Models.Products;
 using MrmTechTest.Core.Domain;
@@ -17,12 +12,13 @@ namespace MrmTechTest.Areas.Api.Controllers
 {
     public class ProductsController : ApiController
     {
-        private readonly IRepository _repository;
         private readonly IConfigurationProvider _configurationProvider;
-        private readonly IProductFactory _productFactory;
         private readonly IMapper _mapper;
+        private readonly IProductFactory _productFactory;
+        private readonly IRepository _repository;
 
-        public ProductsController(IRepository dbContext, IConfigurationProvider configurationProvider, IProductFactory productFactory, IMapper mapper)
+        public ProductsController(IRepository dbContext, IConfigurationProvider configurationProvider,
+            IProductFactory productFactory, IMapper mapper)
         {
             _repository = dbContext;
             _configurationProvider = configurationProvider;
@@ -31,6 +27,10 @@ namespace MrmTechTest.Areas.Api.Controllers
         }
 
         // GET: /api/products
+        /// <summary>
+        /// Retrieves all available products
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductLineItem> Get()
         {
             var products = _repository.Query(new FindAllProductsQuery());
@@ -38,15 +38,24 @@ namespace MrmTechTest.Areas.Api.Controllers
         }
 
         // DELETE: /api/products/{id}
+        /// <summary>
+        /// Deletes a product from the system
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(long id)
         {
             var product = _repository.Find<Product>(id);
-            if(product == null)
+            if (product == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             _repository.Delete(product);
         }
 
         // POST: /api/products
+        /// <summary>
+        /// Creates a new product (and category, if required)
+        /// </summary>
+        /// <param name="fields">Fields to use</param>
+        /// <returns></returns>
         public ProductLineItem Post(ProductFields fields)
         {
             var product = _productFactory.Create(fields);

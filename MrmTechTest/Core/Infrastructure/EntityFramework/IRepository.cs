@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MrmTechTest.Core.Infrastructure.Queries;
+﻿using MrmTechTest.Core.Infrastructure.Queries;
 
 namespace MrmTechTest.Core.Infrastructure.EntityFramework
 {
@@ -13,12 +9,12 @@ namespace MrmTechTest.Core.Infrastructure.EntityFramework
         void Delete<TEntity>(TEntity entity) where TEntity : class;
 
         /// <summary>
-        /// Saves an entity to repository
+        ///     Saves an entity to repository
         /// </summary>
         /// <remarks>
-        /// Normally there would be a unit of work going through the pipeline
-        /// which handles saving actual changes. Here, we just treat each repository save
-        /// as a single unit of work, due to the simplicity of the application.
+        ///     Normally there would be a unit of work going through the pipeline
+        ///     which handles saving actual changes. Here, we just treat each repository save
+        ///     as a single unit of work, due to the simplicity of the application.
         /// </remarks>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="entity"></param>

@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace MrmTechTest.Areas.Api.Models.Categories
+﻿namespace MrmTechTest.Areas.Api.Models.Categories
 {
     public class CategoryLineItem
     {

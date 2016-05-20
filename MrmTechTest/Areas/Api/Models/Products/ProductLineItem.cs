@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Web;
-
-namespace MrmTechTest.Areas.Api.Models.Products
+﻿namespace MrmTechTest.Areas.Api.Models.Products
 {
     public class ProductLineItem
     {

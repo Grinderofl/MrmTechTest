@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Web.Http;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using MrmTechTest.Areas.Api.Models.Products;
 using MrmTechTest.Core.Domain;
 using MrmTechTest.Core.Domain.Queries;
@@ -13,8 +11,8 @@ namespace MrmTechTest.Areas.Api.Controllers
 {
     public class CategoryProductsController : ApiController
     {
-        private readonly IRepository _repository;
         private readonly IConfigurationProvider _configurationProvider;
+        private readonly IRepository _repository;
 
         public CategoryProductsController(IRepository dbContext, IConfigurationProvider configurationProvider)
         {
@@ -23,6 +21,11 @@ namespace MrmTechTest.Areas.Api.Controllers
         }
 
         // GET: /api/categories/{id}/products
+        /// <summary>
+        /// Retrieves products for the specified category
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IEnumerable<ProductLineItem> Get(long id)
         {
             var category = _repository.Find<Category>(id);
