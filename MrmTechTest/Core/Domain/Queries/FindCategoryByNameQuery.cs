@@ -6,16 +6,16 @@ namespace MrmTechTest.Core.Domain.Queries
 {
     public class FindCategoryByNameQuery : QueryObject<Category>
     {
-        private readonly string _name;
+        internal readonly string Name;
 
         public FindCategoryByNameQuery(string name)
         {
-            _name = name;
+            Name = name;
         }
 
         public override Category Execute(DbContext context)
         {
-            return context.Set<Category>().FirstOrDefault(x => x.Name == _name);
+            return context.Set<Category>().FirstOrDefault(x => x.Name == Name);
         }
     }
 }

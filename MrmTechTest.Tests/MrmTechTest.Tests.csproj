@@ -68,7 +68,9 @@
     <Compile Include="CategoryProductsContext.cs" />
     <Compile Include="CategoryTests\WhenRetrievingListOfCategories.cs" />
     <Compile Include="CategoryTests\WhenRetrievingProductsForCategory.cs" />
+    <Compile Include="FactoryTests\WhenCreatingProductAndTheCategoryExists.cs" />
     <Compile Include="ProductContext.cs" />
+    <Compile Include="ProductFactoryContext.cs" />
     <Compile Include="ProductTests\WhenCreatingProduct.cs" />
     <Compile Include="ProductTests\WhenDeletingProduct.cs" />
     <Compile Include="ProductTests\WhenDeletingProductAndProductDoesNotExist.cs" />
